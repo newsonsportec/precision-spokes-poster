@@ -37,10 +37,7 @@
     .image-wrapper {
       position: relative;
       width: 100%;
-
-      /* x2 bigger than the first version */
-      max-width: 2048px;
-
+      max-width: 2048px; /* x2 bigger version */
       margin: 0 auto;
     }
 
@@ -50,10 +47,141 @@
       display: block;
     }
 
-    /*
-      Invisible clickable area over:
-      "SPOKE MEASUREMENT" button
-    */
+    /* -----------------------------------
+       SPARKLE AREA ON TOP LOGO
+    ----------------------------------- */
+    .logo-sparkle-area {
+      position: absolute;
+      left: 28%;
+      top: 1.8%;
+      width: 44%;
+      height: 16%;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .logo-sparkle-area::before {
+      content: "";
+      position: absolute;
+      left: 20%;
+      top: 10%;
+      width: 60%;
+      height: 70%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(191,255,0,0.18) 0%, rgba(191,255,0,0.08) 35%, rgba(191,255,0,0) 75%);
+      animation: glowPulse 3s ease-in-out infinite;
+      filter: blur(8px);
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #ffffff;
+      text-shadow:
+        0 0 6px #ffffff,
+        0 0 12px #d9ff4d,
+        0 0 22px #b8ff00,
+        0 0 34px #9dff00;
+      animation: twinkle 2.8s infinite ease-in-out;
+      opacity: 0.25;
+    }
+
+    .sparkle.s1 {
+      left: 8%;
+      top: 20%;
+      font-size: 20px;
+      animation-delay: 0s;
+    }
+
+    .sparkle.s2 {
+      left: 22%;
+      top: 5%;
+      font-size: 28px;
+      animation-delay: 0.5s;
+    }
+
+    .sparkle.s3 {
+      left: 42%;
+      top: 18%;
+      font-size: 18px;
+      animation-delay: 1s;
+    }
+
+    .sparkle.s4 {
+      left: 60%;
+      top: 8%;
+      font-size: 30px;
+      animation-delay: 1.4s;
+    }
+
+    .sparkle.s5 {
+      left: 77%;
+      top: 28%;
+      font-size: 22px;
+      animation-delay: 1.9s;
+    }
+
+    .sparkle.s6 {
+      left: 32%;
+      top: 54%;
+      font-size: 24px;
+      animation-delay: 2.2s;
+    }
+
+    .sparkle.s7 {
+      left: 67%;
+      top: 58%;
+      font-size: 20px;
+      animation-delay: 2.6s;
+    }
+
+    .sparkle.s8 {
+      left: 50%;
+      top: 38%;
+      font-size: 32px;
+      animation-delay: 0.9s;
+    }
+
+    @keyframes twinkle {
+      0% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 0.15;
+      }
+      25% {
+        transform: scale(1.1) rotate(8deg);
+        opacity: 0.95;
+      }
+      50% {
+        transform: scale(0.75) rotate(-6deg);
+        opacity: 0.35;
+      }
+      75% {
+        transform: scale(1.25) rotate(10deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 0.15;
+      }
+    }
+
+    @keyframes glowPulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.45;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(0.95);
+        opacity: 0.45;
+      }
+    }
+
+    /* -----------------------------------
+       CLICKABLE BUTTON AREAS
+    ----------------------------------- */
     .spoke-measurement-link {
       position: absolute;
       left: 13.5%;
@@ -64,12 +192,9 @@
       cursor: pointer;
       border-radius: 22px;
       text-decoration: none;
+      z-index: 5;
     }
 
-    /*
-      Invisible clickable area over:
-      "SPOKE SPECIFICATION" button
-    */
     .spoke-specification-link {
       position: absolute;
       left: 13.5%;
@@ -80,6 +205,7 @@
       cursor: pointer;
       border-radius: 22px;
       text-decoration: none;
+      z-index: 5;
     }
 
     .spoke-measurement-link:hover,
@@ -91,6 +217,13 @@
     @media (max-width: 768px) {
       .image-wrapper {
         max-width: 100%;
+      }
+
+      .logo-sparkle-area {
+        left: 28%;
+        top: 1.8%;
+        width: 44%;
+        height: 16%;
       }
 
       .spoke-measurement-link {
@@ -120,6 +253,18 @@
         alt="Newson Sportec Precision Spokes"
         class="main-image"
       />
+
+      <!-- Sparkle effect over the top logo -->
+      <div class="logo-sparkle-area">
+        <span class="sparkle s1">✦</span>
+        <span class="sparkle s2">✦</span>
+        <span class="sparkle s3">✦</span>
+        <span class="sparkle s4">✦</span>
+        <span class="sparkle s5">✦</span>
+        <span class="sparkle s6">✦</span>
+        <span class="sparkle s7">✦</span>
+        <span class="sparkle s8">✦</span>
+      </div>
 
       <!-- Clickable Spoke Measurement button -->
       <a
